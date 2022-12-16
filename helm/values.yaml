@@ -66,5 +66,5 @@ gateway:
   name: gateway
   istio: ingressgateway
   port: 80
-  portname: 80
+  portname: http
   protocol: HTTP
