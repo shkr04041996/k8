@@ -6,7 +6,7 @@ metadata:
     name: {{ .Values.service.mongoname }}
 spec:
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ .Values.service.mongotargetport }}
       targetPort: {{ .Values.service.mongotargetport }}
   selector:
     app: {{ .Values.service.mongoapp }}
