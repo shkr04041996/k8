@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Values.deployment.app }}
-      version: {{ .Values.deployment.version }}
+      version: {{ .Values.deployment.versionv1 }}
   template:
     metadata:
       labels:
