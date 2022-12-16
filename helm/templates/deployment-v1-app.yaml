@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.deployment.app }}
-        version: {{ .Values.deployment.veersion }}
+        version: {{ .Values.deployment.versionv1 }}
         sidecar.istio.io/inject: {{ .Values.deployment.istio }}
     spec:
       containers:
