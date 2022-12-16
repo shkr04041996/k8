@@ -1,5 +1,6 @@
 deployment:
   name: todo-client-app-blue
+  namegreen: todo-client-app-green
   replicas: 2
   app: todo-client-app
   versionv1: 'v1'
