@@ -17,5 +17,5 @@ spec:
     spec:
       containers:
       - image: {{ .Values.deployment.imagegreen }}
-        name: {{ .Values.deployment.name }}
+        name: {{ .Values.deployment.namegreen }}
         imagePullPolicy: {{ .Values.deployment.pullpolicy }}
