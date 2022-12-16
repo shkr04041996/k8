@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: {{ .Values.service.mongoapp }}
-  name: {{ .Values.service.mongoname }}
+    name: {{ .Values.service.mongoname }}
 spec:
   ports:
     - port: {{ .Values.service.port }}
