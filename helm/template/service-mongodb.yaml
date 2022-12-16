@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.service.mongoapp }}
+  name: {{ .Values.service.mongoname }}
+spec:
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.mongotargetport }}
+  selector:
+    app: {{ .Values.service.mongoapp }}

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.app }}
+      version: {{ .Values.deployment.versionv2 }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.app }}
+        version: {{ .Values.deployment.veersionv2 }}
+        sidecar.istio.io/inject: {{ .Values.deployment.istio }}
+    spec:
+      containers:
+      - image: venuganti/poc-k8s:{{ .Values.deployment.image }}
+        name: {{ .Values.deployment.name }}
+        imagePullPolicy: {{ .Values.deployment.pullpolicy }}

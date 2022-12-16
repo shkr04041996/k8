@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.config.name }}
+data:
+  PORT: {{ .Values.config.port }}
+  CLIENT: {{ .Values.config.client }}
+  MONGODB_URL: {{ .Values.config.mongodb_rul }}

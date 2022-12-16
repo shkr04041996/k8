@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-client-app-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-client-app
+  template:
+    metadata:
+      labels:
+        app: todo-client-app
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+      - image: venuganti/poc-k8s:reactfront
+        name: container1
+        imagePullPolicy: IfNotPresent

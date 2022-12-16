@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.servername }}
+spec:
+  replicas: {{ .Values.deployment.serverreplicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.serverapp }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.serverapp }}
+        sidecar.istio.io/inject: {{ .Values.deployment.istio }}
+    spec:
+      containers:
+      - image: {{ .Values.deployment.serverimage }}
+        name: {{ .Values.deployment.serverapp }}
+        ports:
+        - containerPort: {{ .Values.deployment.serverport }}
+        imagePullPolicy: {{ .Values.deployment.pullpolicy }}
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.deployment.serverconfig }}
+        - secretRef:
+            name: {{ .Values.deployment.serversecret }}

@@ -1,0 +1,70 @@
+deployment:
+  name: todo-client-app-blue
+  replicas: 1
+  app: todo-client-app
+  versionv1: v1
+  vesionv2: v2
+  istio: 'True'
+  image: reactfront_blue
+  pullpolicy: Always
+  servername: todo-server-app-deploy
+  serverreplicas: 1
+  serverapp: todo-server-app
+  serverimage: venuganti/poc-k8s:test-back-end
+  serverport: 5000
+  serverconfig: server-side-configs
+  serversecret: server-side-secrets
+
+config:
+  name: server-side-configs
+  port: "5000"
+  client: todo-client-app-deploy:80
+  mongodb_rul: mongodb://todo-mongo-service:27017/todo-k8s
+
+virtualService:
+  name: app-client
+  namespace: default
+  gateway: gateway
+  host: todo-client-service
+  subsetv1: v1
+  subsetv2: v2
+  port: 80
+  weightsubone: 50
+  weightsubtwo: 50
+  regex: '^.*\.(ico|png|jpg|js|woff|svg|woff2|eot|ttf|css|json|map)$'
+  servername: app-server
+  serverhost: todo-backend-service
+  serverport: 5000
+
+service:
+  name: todo-client-service
+  selector: todo-client-app
+  port: 80
+  targetport: 80
+  mongoname: todo-mongodb-service
+  mongoapp: todo-mongodb
+  mongoport: 27017
+  mongotargetport: 27017
+  servername: todo-backend-service
+  serverport: 5000
+  servertargetport: 5000
+  serverselctor: todo-server-app
+
+destinationrule:
+  name: front-end-destinationrule
+  host: todo-client-service
+  versionone: v1
+  versiontwo: v2
+
+persistentvolume:
+  name: todo-pvc
+  accessmode: ReadWriteMany
+  storage: 1G
+  path: /tmp/todo-pv
+
+gateway:
+  name: gateway
+  istio: ingressgateway
+  port: 80
+  portname: 80
+  protocol: HTTP
