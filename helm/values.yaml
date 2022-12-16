@@ -43,8 +43,8 @@ service:
   targetport: 80
   mongoname: todo-mongodb-service
   mongoapp: todo-mongodb
-  mongoport: 27017
-  mongotargetport: 27017
+  mongoport: '27017'
+  mongotargetport: '27017'
   servername: todo-backend-service
   serverport: 5000
   servertargetport: 5000
