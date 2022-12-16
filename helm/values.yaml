@@ -2,8 +2,8 @@ deployment:
   name: todo-client-app-blue
   replicas: 2
   app: todo-client-app
-  versionv1: v1
-  versionv2: v2
+  versionv1: 'v1'
+  versionv2: 'v2'
   istio: 'True'
   image: venuganti/poc-k8s:reactfront_blue
   imagegreen: venuganti/poc-k8s:reactfront_green
