@@ -5,7 +5,8 @@ deployment:
   versionv1: v1
   versionv2: v2
   istio: 'True'
-  image: reactfront_blue
+  image: venuganti/poc-k8s:reactfront_blue
+  imagegreen: venuganti/poc-k8s:reactfront_green
   pullpolicy: Always
   servername: todo-server-app-deploy
   serverreplicas: 2
