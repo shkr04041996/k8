@@ -16,6 +16,6 @@ spec:
         sidecar.istio.io/inject: '{{ .Values.deployment.istio }}'
     spec:
       containers:
-      - image: venuganti/poc-k8s:{{ .Values.deployment.image }}
+      - image: venuganti/poc-k8s:{{ .Values.deployment.imagegreen }}
         name: {{ .Values.deployment.name }}
         imagePullPolicy: {{ .Values.deployment.pullpolicy }}
