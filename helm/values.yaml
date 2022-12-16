@@ -1,6 +1,6 @@
 deployment:
   name: todo-client-app-blue
-  replicas: 1
+  replicas: 2
   app: todo-client-app
   versionv1: v1
   versionv2: v2
@@ -8,7 +8,7 @@ deployment:
   image: reactfront_blue
   pullpolicy: Always
   servername: todo-server-app-deploy
-  serverreplicas: 1
+  serverreplicas: 2
   serverapp: todo-server-app
   serverimage: venuganti/poc-k8s:test-back-end
   serverport: 5000
