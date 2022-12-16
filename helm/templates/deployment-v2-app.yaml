@@ -13,7 +13,7 @@ spec:
       labels:
         app: {{ .Values.deployment.app }}
         version: {{ .Values.deployment.versionv2 }}
-        sidecar.istio.io/inject: {{ .Values.deployment.istio }}
+        sidecar.istio.io/inject: '{{ .Values.deployment.istio }}'
     spec:
       containers:
       - image: venuganti/poc-k8s:{{ .Values.deployment.image }}

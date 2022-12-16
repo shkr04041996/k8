@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.deployment.serverapp }}
-        sidecar.istio.io/inject: {{ .Values.deployment.istio }}
+        sidecar.istio.io/inject: '{{ .Values.deployment.istio }}'
     spec:
       containers:
       - image: {{ .Values.deployment.serverimage }}
