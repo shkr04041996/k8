@@ -3,7 +3,7 @@ deployment:
   replicas: 1
   app: todo-client-app
   versionv1: v1
-  vesionv2: v2
+  versionv2: v2
   istio: 'True'
   image: reactfront_blue
   pullpolicy: Always
