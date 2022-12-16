@@ -43,7 +43,7 @@ service:
   selector: todo-client-app
   port: 80
   targetport: 80
-  mongoname: todo-mongodb-service
+  mongoname: todo-mongo-service
   mongoapp: todo-mongodb
   mongoport: '27017'
   mongotargetport: '27017'
