@@ -1,21 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deployment.name }}
+  name: {{ .Values.deployment.name_green }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       app: {{ .Values.deployment.app }}
-      version: {{ .Values.deployment.versionv2 }}
+      version: '{{ .Values.deployment.versionv2 }}'
   template:
     metadata:
       labels:
-        app: {{ .Values.deployment.app }}
-        version: {{ .Values.deployment.versionv2 }}
+        app: '{{ .Values.deployment.app }}'
+        version: '{{ .Values.deployment.versionv2 }}'
         sidecar.istio.io/inject: '{{ .Values.deployment.istio }}'
     spec:
       containers:
-      - image: {{ .Values.deployment.image }}
-        name: {{ .Values.deployment.name }}
+      - image: {{ .Values.deployment.green_image }}
+        name: {{ .Values.deployment.name_green }}
         imagePullPolicy: {{ .Values.deployment.pullpolicy }}
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.deployment.serverconfig }}

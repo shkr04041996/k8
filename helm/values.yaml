@@ -1,17 +1,17 @@
 deployment:
   name: todo-client-app-blue
-  namegreen: todo-client-app-green
+  name_green: todo-client-app-green
   replicas: 2
-  app: todo-client-app
-  versionv1: 'v1'
-  versionv2: 'v2'
-  istio: 'True'
+  app: "todo-client-app"
+  versionv1: "v1"
+  versionv2: "v2"
+  istio: "True"
   image: venuganti/poc-k8s:reactfront_blue
-  imagegreen: venuganti/poc-k8s:reactfront_green
+  green_image: venuganti/poc-k8s:reactfront_green
   pullpolicy: Always
   servername: todo-server-app-deploy
   serverreplicas: 2
-  serverapp: todo-server-app
+  serverapp: "todo-server-app"
   serverimage: venuganti/poc-k8s:test-back-end
   serverport: 5000
   serverconfig: server-side-configs
@@ -19,9 +19,9 @@ deployment:
 
 config:
   name: server-side-configs
-  port: "5000"
-  client: todo-client-app-deploy:80
-  mongodb_rul: mongodb://todo-mongo-service:27017/todo-k8s
+  port: 5000
+  client: "todo-client-app-green:80"
+  mongodb_rul: "mongodb://todo-mongo-service:27017/todo-k8s"
 
 virtualService:
   name: app-client
@@ -45,8 +45,8 @@ service:
   targetport: 80
   mongoname: todo-mongo-service
   mongoapp: todo-mongodb
-  mongoport: '27017'
-  mongotargetport: '27017'
+  mongoport: 27017
+  mongotargetport: 27017
   servername: todo-backend-service
   serverport: 5000
   servertargetport: 5000
@@ -68,5 +68,5 @@ gateway:
   name: gateway
   istio: ingressgateway
   port: 80
-  portname: http
+  portname: 80
   protocol: HTTP

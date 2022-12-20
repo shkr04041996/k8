@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.config.name }}
 data:
-  PORT: {{ .Values.config.port }}
-  CLIENT: {{ .Values.config.client }}
-  MONGODB_URL: {{ .Values.config.mongodb_rul }}
+  PORT: '{{ .Values.config.port }}'
+  CLIENT: '{{ .Values.config.client }}'
+  MONGODB_URL: '{{ .Values.config.mongodb_rul }}'
+  REACT_APP_baseAPIURL: 'todo-backend-service:5000'

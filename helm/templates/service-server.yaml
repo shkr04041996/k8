@@ -5,6 +5,6 @@ metadata:
 spec:
   ports:
   - port: {{ .Values.service.serverport }}
-    targetPort: {{ .Values.service.serverport }}
+    targetPort: {{ .Values.service.servertargetport }}
   selector:
     app: {{ .Values.service.serverselctor }}

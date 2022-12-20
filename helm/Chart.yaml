@@ -1,5 +1,5 @@
-apiVersion: v3
-name: poc
+apiVersion: v2
 type: application
-version: 1.1
-description: this is a k8s poc with istio
+name: poc
+description: A Helm chart for front to be used with harness
+version: '1'

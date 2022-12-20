@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.deployment.serverapp }}
+        app: '{{ .Values.deployment.serverapp }}'
         sidecar.istio.io/inject: '{{ .Values.deployment.istio }}'
     spec:
       containers:
