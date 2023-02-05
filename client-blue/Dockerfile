@@ -14,7 +14,7 @@ ENV REACT_APP_baseAPIURL=todo-backend-service:5000
 
 RUN yarn build
 
-FROM nginx:latest
+FROM nginx:1.23
 
 LABEL maintainer=Aamir-Pinger
 
