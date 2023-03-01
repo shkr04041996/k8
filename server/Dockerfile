@@ -9,5 +9,6 @@ RUN yarn
 COPY ./src ./src
 
 EXPOSE 5000
+#exp
 
 CMD [ "yarn", "start" ]
